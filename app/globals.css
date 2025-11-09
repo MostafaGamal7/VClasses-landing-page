@@ -2,16 +2,28 @@
 
 :root {
   --background: #ffffff;
+  --primary: #fe5b3e;
+  --primary-hover: #FE7B49;
   --color-primary: #fe5b3e;
+  --color-primary-hover: #FE7B49;
+  --color-secondary: #221314;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --breakpoint-tablet: 60rem;
 }
 
 body {
   background: var(--background);
   font-family: var(--font-alexandria, var(--font-cairo, system-ui, sans-serif));
+}
+
+a,
+button {
+  cursor: pointer;
 }
 
 @utility flex-center {
