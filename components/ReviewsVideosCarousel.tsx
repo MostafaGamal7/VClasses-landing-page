@@ -123,16 +123,18 @@ export default function ReviewsVideosCarousel() {
     setSelectedIndex(emblaApi.selectedScrollSnap());
   }, [emblaApi]);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const setTweenNodes = useCallback((emblaApi: any) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     tweenNodes.current = emblaApi.slideNodes().map((slideNode: any) => {
       return slideNode.querySelector('.embla__slide__content');
     });
   }, []);
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
   const setTweenFactor = useCallback((emblaApi: any) => {
     tweenFactor.current = TWEEN_FACTOR_BASE * emblaApi.scrollSnapList().length;
   }, []);
-
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
   const tweenScale = useCallback((emblaApi: any, eventName?: string) => {
     const engine = emblaApi.internalEngine();
     const scrollProgress = emblaApi.scrollProgress();
@@ -147,6 +149,7 @@ export default function ReviewsVideosCarousel() {
         if (isScrollEvent && !slidesInView.includes(slideIndex)) return;
 
         if (engine.options.loop) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           engine.slideLooper.loopPoints.forEach((loopItem: any) => {
             const target = loopItem.target();
 
@@ -191,7 +194,7 @@ export default function ReviewsVideosCarousel() {
         .off('reInit', tweenScale)
         .off('scroll', tweenScale);
     };
-  }, [emblaApi, onSelect, tweenScale]);
+  }, [emblaApi, onSelect, tweenScale, setTweenNodes, setTweenFactor]);
 
   const openVideo = (youtubeId: string) => {
     setActiveYoutubeId(youtubeId);
@@ -210,7 +213,7 @@ export default function ReviewsVideosCarousel() {
           {reviewsVideos.map((video, index) => (
             <div 
               key={video.id} 
-              className="embla__slide flex-shrink-0 w-[80%] sm:w-[45%] lg:w-[26%] px-2 md:px-3 flex justify-center"
+              className="embla__slide shrink-0 w-[80%] sm:w-[45%] lg:w-[26%] px-2 md:px-3 flex justify-center"
             >
               <div className="embla__slide__content w-full">
                 <VideoCard 

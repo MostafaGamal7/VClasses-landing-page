@@ -106,3 +106,90 @@ export const reviewsVideos = [
     timeAgoKey: "reviews.videoReviews.review5.timeAgo"
   }
 ];
+
+export interface PlanFeature {
+  id: string;
+  textKey: string;
+  available: boolean;
+}
+
+export interface PlanPricing {
+  monthly: number;
+  yearly: number;
+  currency: string;
+  periodKey: string;
+  saveKey: string;
+}
+
+export interface PlanData {
+  id: string;
+  nameKey: string;
+  popular: boolean;
+  features: PlanFeature[];
+  pricing: PlanPricing;
+  buttonTextKey: string;
+  buttonVariant: 'primary' | 'secondary' | 'outline';
+}
+
+export const plans: PlanData[] = [
+  {
+    id: 'starter',
+    nameKey: 'plans.starter.name',
+    popular: false,
+    features: [
+      { id: 'f1', textKey: 'plans.features.lessons', available: true },
+      { id: 'f2', textKey: 'plans.features.quizzes', available: true },
+      { id: 'f3', textKey: 'plans.features.certificate', available: false },
+      { id: 'f4', textKey: 'plans.features.support', available: false },
+    ],
+    pricing: {
+      monthly: 9.99,
+      yearly: 99.99,
+      currency: 'EGP ',
+      periodKey: 'plans.period.monthly',
+      saveKey: 'plans.save.percent',
+    },
+    buttonTextKey: 'plans.button.getStarted',
+    buttonVariant: 'outline',
+  },
+  {
+    id: 'pro',
+    nameKey: 'plans.pro.name',
+    popular: true,
+    features: [
+      { id: 'f1', textKey: 'plans.features.lessons', available: true },
+      { id: 'f2', textKey: 'plans.features.quizzes', available: true },
+      { id: 'f3', textKey: 'plans.features.certificate', available: true },
+      { id: 'f4', textKey: 'plans.features.support', available: false },
+    ],
+    pricing: {
+      monthly: 19.99,
+      yearly: 199.99,
+      currency: '$',
+      periodKey: 'plans.period.monthly',
+      saveKey: 'plans.save.percent',
+    },
+    buttonTextKey: 'plans.button.getStarted',
+    buttonVariant: 'primary',
+  },
+  {
+    id: 'enterprise',
+    nameKey: 'plans.enterprise.name',
+    popular: false,
+    features: [
+      { id: 'f1', textKey: 'plans.features.lessons', available: true },
+      { id: 'f2', textKey: 'plans.features.quizzes', available: true },
+      { id: 'f3', textKey: 'plans.features.certificate', available: true },
+      { id: 'f4', textKey: 'plans.features.support', available: true },
+    ],
+    pricing: {
+      monthly: 29.99,
+      yearly: 299.99,
+      currency: '$',
+      periodKey: 'plans.period.monthly',
+      saveKey: 'plans.save.percent',
+    },
+    buttonTextKey: 'plans.button.contactUs',
+    buttonVariant: 'secondary',
+  },
+];
