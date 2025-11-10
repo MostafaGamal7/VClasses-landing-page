@@ -12,12 +12,54 @@
   },
   "hero": {
     "title": "Make your ads work, not waste!",
-    "description": "We’re the platform that makes your ad money go where it should… not down the drain!",
-    "cta": "Let’s get to work",
+    "description": "We're the platform that makes your ad money go where it should… not down the drain!",
+    "cta": "Let's get to work",
     "video-intro": {
       "mobile": "Watch video",
       "desktop": "Watch the intro video"
     }
+  },
+  "about": {
+    "title": {
+      "prefix": "Why is",
+      "highlight": "this course awesome",
+      "suffix": "?"
+    },
+    "subtitle": "Because it's made for people who want real work, not big talk!",
+    "card1": {
+      "title": "Hands-on learning, not stories",
+      "description": "Every lesson includes real-world practice and exercises so you actually get the job, not just theory."
+    },
+    "card2": {
+      "title": "A trainer who knows the market",
+      "description": "You'll learn from someone who actually works in media buying—living it daily, not reading it from a book."
+    },
+    "card3": {
+      "title": "Support after the course",
+      "description": "You won't finish the course and get left hanging—there's ongoing support and answers to your questions right away."
+    },
+    "learn": {
+      "title": {
+        "prefix": "What You'll",
+        "highlight": "Actually Learn",
+        "suffix": ""
+      },
+      "subtitle": "Practical skills to run ads that get results – no fluff, no theory talk.",
+      "items": {
+        "item1": {
+          "title": "Campaign Setup & Strategy",
+          "description": "Learn how to build the right campaign structure, target the right audience, and plan your budget smart so every pound works."
+        },
+        "item2": {
+          "title": "Winning Creatives & Ad Copy",
+          "description": "Create scroll-stopping visuals and headlines that grab attention and turn engagement into sales."
+        },
+        "item3": {
+          "title": "Optimize & Scale",
+          "description": "Read your data, cut costs, and scale winning campaigns without burning your budget."
+        }
+      },
+      "cta": "Join Now"
+    }
   }
 }
-
