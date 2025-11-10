@@ -4,6 +4,7 @@ import About from "@/sections/About";
 import Reviews from "@/sections/Reviews";
 import Plans from "@/sections/Plans";
 import Meeting from "@/sections/Meeting";
+import FAQs from "@/sections/FAQs";
 
 function Home() {
   return (
@@ -14,6 +15,7 @@ function Home() {
       <Reviews />
       <Plans />
       <Meeting />
+      <FAQs />
     </>
   );
 }

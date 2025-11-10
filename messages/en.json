@@ -158,5 +158,31 @@
       "item3": "Dr. Islam loves simplifying concepts and explaining them in a real, down-to-earth way — no complicated jargon, no useless fluff.",
       "item4": "Every lesson includes real practical work so students actually do the job, not just watch."
     }
+  },
+  "faqs": {
+    "title": "Questions You Might Be Thinking About",
+    "description": "Still got questions? No worries — we’ve gathered the most common ones people ask before joining.",
+    "items": [
+      {
+        "question": "Is this course suitable for beginners?",
+        "answer": "Absolutely! The course is designed for anyone — even if it’s your first time hearing about media buying. We start from the basics and go step by step until you fully understand and can apply it yourself."
+      },
+      {
+        "question": "Is the course online or in-person?",
+        "answer": "The course is 100% online, so you can learn from anywhere and at any time."
+      },
+      {
+        "question": "Is it hands-on training or just theory?",
+        "answer": "Every lesson includes real practical work so students actually do the job, not just watch."
+      },
+      {
+        "question": "Do I get a certificate after completing the course?",
+        "answer": "Yes, you'll receive a certificate of completion after finishing all course modules and passing the final assessment."
+      },
+      {
+        "question": "Is there follow-up or support after the course?",
+        "answer": "Yes, there is ongoing support and answers to your questions right away."
+      }
+    ]
   }
 }
