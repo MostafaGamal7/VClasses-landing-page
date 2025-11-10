@@ -5,7 +5,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useCallback, useEffect, useState } from "react";
 import AboutCard from "@/components/AboutCard";
-import aboutCards from "@/lib/constants";
+import { aboutCards } from "@/lib/constants";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 

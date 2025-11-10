@@ -81,62 +81,58 @@ export default function Header() {
               {/* Separator */}
               <div className="hidden tablet:block w-px h-6 bg-gray-300" />
               {/* Language Selector and CTA */}
-            <div className="flex items-center gap-4">
-              
+              <div className="flex items-center gap-4">
+                {/* Language Selector */}
+                <div className="relative">
+                  <button
+                    onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
+                    className="flex items-center gap-2 text-secondary hover:text-gray-900 transition-colors"
+                    aria-label="Select language"
+                  >
+                    <Image
+                      src="/assets/icons/globe.png"
+                      alt="VClasses Logo"
+                      width={24}
+                      height={24}
+                      priority
+                    />
+                    <span className="text-sm font-medium">
+                      {languages.find((lang) => lang.code === locale)?.name ||
+                        "English"}
+                    </span>
+                  </button>
 
-              {/* Language Selector */}
-              <div className="relative">
-                <button
-                  onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
-                  className="flex items-center gap-2 text-secondary hover:text-gray-900 transition-colors"
-                  aria-label="Select language"
-                >
-                  <Image
-                    src="/assets/icons/globe.png"
-                    alt="VClasses Logo"
-                    width={24}
-                    height={24}
-                    priority
-                  />
-                  <span className="text-sm font-medium">
-                    {languages.find((lang) => lang.code === locale)?.name ||
-                      "English"}
-                  </span>
-                </button>
-
-                {/* Language Dropdown */}
-                {isLanguageMenuOpen && (
-                  <div className="absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg z-50 border border-gray-200">
-                    <div className="py-1">
-                      {languages.map((lang) => (
-                        <button
-                          key={lang.code}
-                          onClick={() => switchLocale(lang.code)}
-                          className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-100 transition-colors ${
-                            locale === lang.code
-                              ? "bg-orange-50 text-orange-600 font-medium"
-                              : "text-gray-700"
-                          }`}
-                        >
-                          {lang.name}
-                        </button>
-                      ))}
+                  {/* Language Dropdown */}
+                  {isLanguageMenuOpen && (
+                    <div className="absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg z-50 border border-gray-200">
+                      <div className="py-1">
+                        {languages.map((lang) => (
+                          <button
+                            key={lang.code}
+                            onClick={() => switchLocale(lang.code)}
+                            className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-100 transition-colors ${
+                              locale === lang.code
+                                ? "bg-orange-50 text-orange-600 font-medium"
+                                : "text-gray-700"
+                            }`}
+                          >
+                            {lang.name}
+                          </button>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
-              
-               
             </div>
-            
+            {/* CTA Button */}
+            <Button
+              variant="primary"
+              size="md"
+              translationKey="header.tryItNow"
+              className="rounded-full!"
+            />
           </div>
-          {/* CTA Button */}
-              <Button 
-                variant="primary"
-                size="md"
-                translationKey="header.tryItNow"
-              />
-        </div>
         </div>
       </nav>
     </header>

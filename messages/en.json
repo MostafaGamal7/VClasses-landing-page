@@ -61,5 +61,55 @@
       },
       "cta": "Join Now"
     }
+  },
+  "reviews": {
+    "title": {
+      "prefix": "What People Are Saying",
+      "highlight": "About the",
+      "suffix": "Course"
+    },
+    "subtitle": "Stories from students who started from scratch and saw real results in their work.",
+    "review1": {
+      "name": "Mohamed Amr",
+      "role": "Digital Marketer",
+      "message": "The explanation is very simple and clear. I loved how every part connects to the next, and the practical part helped me produce professional work—while I’m still only halfway through the content! 😍",
+      "time": "2:08PM"
+    },
+    "review2": {
+      "name": "Ahmed Samir",
+      "role": "Performance Marketer",
+      "message": "Straightforward course with real-world examples. I finally understood campaign structure and how to scale without wasting budget.",
+      "time": "10:41AM"
+    },
+    "review3": {
+      "name": "Mostafa Gamal",
+      "role": "Entrepreneur",
+      "message": "Clear steps, easy frameworks, and immediate impact on my business ads. Highly recommended for beginners and business owners.",
+      "time": "7:22PM"
+    },
+    "videoReviews": {
+      "title": "Video Testimonials",
+      "subtitle": "Hear from our students about their experience with the course",
+      "review1": {
+        "name": "Eslam Ahmed",
+        "timeAgo": "1 Day Ago"
+      },
+      "review2": {
+        "name": "Mohamed Ali",
+        "timeAgo": "2 Days Ago"
+      },
+      "review3": {
+        "name": "Ahmed Samir",
+        "timeAgo": "3 Days Ago"
+      },
+      "review4": {
+        "name": "Mohamed Ahmed",
+        "timeAgo": "4 Days Ago"
+      },
+      "review5": {
+        "name": "Mostafa Gamal",
+        "timeAgo": "5 Days Ago"
+      }
+    }
   }
 }
