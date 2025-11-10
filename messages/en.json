@@ -111,5 +111,52 @@
         "timeAgo": "5 Days Ago"
       }
     }
+  },
+  "plans": {
+  "title": "Choose Your Plan",
+  "description": "Whether you’re just starting out or ready to crush it in media buying, we’ve got the plan for you.",
+  "monthly": "Monthly",
+  "yearly": "Yearly",
+  "save": "Save 20%",
+  "mostPopular": "Most Popular",
+  "percent": "Save {percent}%",
+  "period": {
+    "monthly": "month",
+    "yearly": "year"
+  },
+  "button": {
+    "getStarted": "Get Started",
+    "contactUs": "Contact Us"
+  },
+  "features": {
+    "lessons": "Access to all lessons",
+    "quizzes": "Practice quizzes",
+    "certificate": "Certificate of completion",
+    "support": "Priority support"
+  },
+  "starter": {
+    "name": "Starter Plan"
+  },
+  "pro": {
+    "name": "Pro Plan"
+  },
+  "enterprise": {
+    "name": "All-Inclusive Package"
+  }
+},
+"meeting": {
+    "title": "Meet Your Trainer",
+    "description": "The one who’ll teach you real media buying — straight from the field, not from a textbook.",
+    "instructor": "Eng. Ahmed Sami — Media Buying & Digital Marketing Specialist",
+    "subtitle": "Over 8 years of experience managing ad campaigns for some of the biggest brands in the Arab world.",
+    "trainerRating": "4.5 Trainer Rating",
+    "trainerReviews": "2,707 Reviews",
+    "trainerDescription": "Dr. Islam Ahmed is a Media Buying and Digital Marketing Specialist with over 8 years of experience. He has worked with startups that began from scratch and major brands that achieved massive results through campaigns he personally planned and executed.",
+    "trainerFeatures": {
+      "item1": "Over the years, he has managed hundreds of ad campaigns across multiple industries — from education and e-commerce to services and personal brands.",
+      "item2": "That’s why he knows media buying isn’t just “running ads” — it’s both a science and an art built on analysis, testing, and smart decisions.",
+      "item3": "Dr. Islam loves simplifying concepts and explaining them in a real, down-to-earth way — no complicated jargon, no useless fluff.",
+      "item4": "Every lesson includes real practical work so students actually do the job, not just watch."
+    }
   }
 }
