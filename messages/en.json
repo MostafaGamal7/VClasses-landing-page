@@ -184,5 +184,28 @@
         "answer": "Yes, there is ongoing support and answers to your questions right away."
       }
     ]
+  },
+  "contact": {
+    "title": "Let’s Stay in Touch 😍",
+    "description": "Got a question? Need advice? Or just wanna share your thoughts? We’re here and actually listening!",
+    "successMessage": "Thank you for your message! We'll get back to you soon.",
+    "errorMessage": "Something went wrong. Please try again later.",
+    "form": {
+      "name": "Full Name",
+      "namePlaceholder": "Enter your name",
+      "email": "Email Address",
+      "emailPlaceholder": "Enter your email",
+      "phone": "Phone Number",
+      "phonePlaceholder": "Enter your phone number",
+      "message": "Your Message",
+      "messagePlaceholder": "Type your message here...",
+      "submit": "Send",
+      "submitting": "Sending...",
+      "required": "This field is required",
+      "nameError": "Name must be at least 2 characters",
+      "emailError": "Please enter a valid email",
+      "messageError": "Message must be at least 10 characters",
+      "phoneError": "Please enter a valid phone number"
+    }
   }
 }
