@@ -9,6 +9,15 @@
   },
   "banner": {
     "message": "🔥 Join now and learn how to run ad campaigns like a pro – before the price goes up!"
+  },
+  "hero": {
+    "title": "Make your ads work, not waste!",
+    "description": "We’re the platform that makes your ad money go where it should… not down the drain!",
+    "cta": "Let’s get to work",
+    "video-intro": {
+      "mobile": "Watch video",
+      "desktop": "Watch the intro video"
+    }
   }
 }
 

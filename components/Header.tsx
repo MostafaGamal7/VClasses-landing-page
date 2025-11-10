@@ -4,6 +4,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { usePathname, useRouter, Link } from "@/i18n/routing";
 import Image from "next/image";
 import { useState } from "react";
+import Button from "@/components/ui/Button";
 
 export default function Header() {
   const t = useTranslations("header");
@@ -25,7 +26,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="w-full fixed top-0 left-0 right-0">
+    <header className="w-full fixed top-0 left-0 right-0 z-50 flex flex-col-reverse md:flex-col">
       {/* Promotional Banner */}
       <div className=" text-secondary bg-primary py-2 px-4 flex items-center justify-center gap-2 text-sm md:text-base">
         <span className="text-center">{bannerText("message")}</span>
@@ -33,7 +34,7 @@ export default function Header() {
 
       {/* Main Navigation Bar */}
       <nav className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container">
           <div className="flex items-center justify-between h-16 md:h-20 gap-2">
             {/* Logo */}
             <Link href="/" className="shrink-0 flex items-center">
@@ -48,7 +49,7 @@ export default function Header() {
             </Link>
 
             {/* Desktop Navigation Links */}
-            <div className="flex items-center gap-2 lg:gap-4 flex-1 justify-center">
+            <div className="flex items-center xl:gap-4 flex-1 justify-center text-sm xl:text-base">
               <Link
                 href="/"
                 className={`text-secondary hover:text-orange-500 transition-colors px-2 lg:px-6 py-2 hidden tablet:block ${
@@ -124,13 +125,18 @@ export default function Header() {
                   </div>
                 )}
               </div>
+              
+               
             </div>
+            
           </div>
           {/* CTA Button */}
-              <button className="bg-linear-to-t from-primary-hover to-primary text-white px-4 py-2 md:px-16 md:py-3 rounded-md md:rounded-full font-medium hover:from-primary-hover hover:to-primary transition-all shadow-md hover:shadow-lg text-sm md:text-base">
-                {t("tryItNow")}
-              </button>
-          </div>
+              <Button 
+                variant="primary"
+                size="md"
+                translationKey="header.tryItNow"
+              />
+        </div>
         </div>
       </nav>
     </header>

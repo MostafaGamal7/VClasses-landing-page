@@ -4,14 +4,13 @@
   --background: #ffffff;
   --primary: #fe5b3e;
   --primary-hover: #FE7B49;
-  --color-primary: #fe5b3e;
-  --color-primary-hover: #FE7B49;
-  --color-secondary: #221314;
+  --secondary: #221314;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
   --color-primary-hover: var(--primary-hover);
   --breakpoint-tablet: 60rem;
 }
@@ -32,4 +31,8 @@ button {
 
 @utility text-gradient {
   @apply bg-linear-to-b from-white via-white bg-clip-text font-semibold text-transparent;
+}
+
+@utility container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
