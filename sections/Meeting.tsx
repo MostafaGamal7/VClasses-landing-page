@@ -5,7 +5,7 @@ export default function Meeting() {
   const t = useTranslations('meeting');
 
   return (
-    <section className="relative py-12 md:py-16 overflow-hidden">
+    <section className="relative py-12 md:py-16 overflow-hidden" id="meet">
       {/* Background */}
       <div className="absolute inset-0 -z-10">
         <Image
