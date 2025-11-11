@@ -106,9 +106,9 @@ export default function FAQs() {
                   {item.question}
                 </span>
                 {activeIndex === index ? (
-                  <Image src="/assets/icons/faqs/minus.png" alt="minus" width={24} height={24} />
+                  <Image src="/assets/icons/minus.png" alt="minus" width={24} height={24} />
                 ) : (
-                  <Image src="/assets/icons/faqs/plus.png" alt="plus" width={24} height={24} />
+                  <Image src="/assets/icons/plus.png" alt="plus" width={24} height={24} />
                 )}
               </button>
               <div
