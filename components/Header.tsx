@@ -3,8 +3,12 @@
 import { useTranslations, useLocale } from "next-intl";
 import { usePathname, useRouter, Link } from "@/i18n/routing";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "@/components/ui/Button";
+import { navLinks } from "@/lib/constants";
+
+// List of section IDs to observe
+const sections = ['home', 'about', 'reviews', 'plans', 'contact', 'meet'];
 
 export default function Header() {
   const t = useTranslations("header");
@@ -12,6 +16,53 @@ export default function Header() {
   const router = useRouter();
   const pathname = usePathname();
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      // Find the section with the largest intersection ratio (the one most in view)
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (visible) {
+        setActiveSection(visible.target.id);
+      }
+    },
+    {
+      threshold: [0.25, 0.5, 0.75],
+      rootMargin: "-100px 0px -40% 0px", // helps adjust for header height
+    }
+  );
+
+  const elements: HTMLElement[] = [];
+  sections.forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      observer.observe(el);
+      elements.push(el);
+    }
+  });
+
+  return () => {
+    elements.forEach((el) => observer.unobserve(el));
+    observer.disconnect();
+  };
+}, []);
+
+
+
+  // Handle smooth scroll to section
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 80, // Adjust for fixed header
+        behavior: 'smooth'
+      });
+    }
+  };
 
   const bannerText = useTranslations("banner");
 
@@ -37,49 +88,36 @@ export default function Header() {
         <div className="container">
           <div className="flex items-center justify-between h-16 md:h-20 gap-2">
             {/* Logo */}
-            <Link href="/" className="shrink-0 flex items-center">
+            <Link href="/" className="w-28 sm:w-48 flex items-center">
               <Image
                 src="/assets/images/logo.png"
                 alt="VClasses Logo"
                 width={200}
                 height={52}
-                className="h-8 md:h-10 w-auto"
                 priority
               />
             </Link>
 
             {/* Desktop Navigation Links */}
             <div className="flex items-center xl:gap-4 flex-1 justify-center text-sm xl:text-base">
-              <Link
-                href="/"
-                className={`text-secondary hover:text-orange-500 transition-colors px-2 lg:px-6 py-2 hidden tablet:block ${
-                  pathname === "/"
-                    ? "font-semibold  decoration-orange-500 border-b border-secondary"
-                    : ""
-                }`}
-              >
-                {t("home")}
-              </Link>
-              <Link
-                href="#about"
-                className="text-secondary hover:text-orange-500 hover:border-b transition-colors px-2 lg:px-6 py-2 hidden tablet:block"
-              >
-                {t("about")}
-              </Link>
-              <Link
-                href="#reviews"
-                className="text-secondary hover:text-orange-500 hover:border-b transition-colors px-2 lg:px-6 py-2 hidden tablet:block"
-              >
-                {t("reviews")}
-              </Link>
-              <Link
-                href="#plans"
-                className="text-secondary hover:text-orange-500 hover:border-b transition-colors px-2 lg:px-6 py-2 hidden tablet:block"
-              >
-                {t("plans")}
-              </Link>
+              {navLinks.map(({ href, text }) => {
+                const sectionId = href.replace('#', '');
+                return (
+                  <button
+                    key={sectionId}
+                    onClick={() => scrollToSection(sectionId)}
+                    className={`text-secondary hover:text-orange-500 transition-colors px-2 lg:px-6 py-2 hidden tablet:block ${
+                      activeSection === sectionId 
+                        ? 'font-semibold decoration-orange-500 border-b border-secondary' 
+                        : ''
+                    }`}
+                  >
+                    {t(text)}
+                  </button>
+                );
+              })}
               {/* Separator */}
-              <div className="hidden tablet:block w-px h-6 bg-gray-300" />
+              <div className="hidden tablet:block w-px h-6 mx-2 xl:mx-0 bg-gray-300" />
               {/* Language Selector and CTA */}
               <div className="flex items-center gap-4">
                 {/* Language Selector */}
@@ -130,7 +168,7 @@ export default function Header() {
               variant="primary"
               size="md"
               translationKey="header.tryItNow"
-              className="rounded-full!"
+              className="not-sm:px-2! md:rounded-full!"
             />
           </div>
         </div>

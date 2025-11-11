@@ -12,7 +12,8 @@
   },
   "hero": {
     "title": "Make your ads work, not waste!",
-    "description": "We're the platform that makes your ad money go where it should… not down the drain!",
+    "description": "We're the platform that makes your ad money go where it should… ",
+    "suffix": "not down the drain!",
     "cta": "Let's get to work",
     "video-intro": {
       "mobile": "Watch video",
@@ -122,7 +123,8 @@
   "percent": "Save {percent}%",
   "period": {
     "monthly": "month",
-    "yearly": "year"
+    "yearly": "year",
+    "currency": "EGP "
   },
   "button": {
     "getStarted": "Get Started",
@@ -250,6 +252,7 @@
       "plans": "Pricing Plans",
       "contact": "Contact Us",
       "reviews": "Reviews",
+      "enroll": "Enroll Now",
       "instructors": "Instructors"
     },
     "developed": {
