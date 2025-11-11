@@ -37,10 +37,14 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"} className="scroll-smooth">
+    <html
+      lang={locale}
+      dir={locale === "ar" ? "rtl" : "ltr"}
+      className="scroll-smooth"
+    >
       <body className={`${alexandria.variable} antialiased`}>
         <NextIntlClientProvider messages={messages}>
-          <Header />  
+          <Header />
           {children}
           <Footer />
         </NextIntlClientProvider>
