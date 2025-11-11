@@ -207,5 +207,31 @@
       "messageError": "الرسالة يجب أن تكون على الأقل 10 أحرف",
       "phoneError": "رقم الهاتف غير صحيح"
     }
+  },
+  "course": {
+    "title": "كورس الميديا باينج",
+    "coursePrice": "سعر الدورة",
+    "price": "799 جنيه",
+    "form": {
+      "title": "معلومات التوصيل",
+      "name": "الاسم بالكامل",
+      "namePlaceholder": "أدخل اسمك",
+      "email": "البريد الإلكتروني",
+      "emailPlaceholder": "أدخل بريدك الإلكتروني",
+      "phone": "رقم الهاتف",
+      "phonePlaceholder": "أدخل رقم هاتفك",
+      "totalCoursePrice": "إجمالي سعر الكورس",
+      "submit": "إتمام الشراء",
+      "submitting": "جاري الإرسال...",
+      "required": "هذا الحقل مطلوب",
+      "nameError": "الاسم يجب أن يكون على الأقل 2 أحرف",
+      "emailError": "البريد الإلكتروني غير صحيح",
+      "messageError": "الرسالة يجب أن تكون على الأقل 10 أحرف",
+      "phoneError": "رقم الهاتف غير صحيح",
+      "choosePaymentMethod": "إختر طريقه الدفع",
+      "choosePaymentMethodDescription": "اختر طريقة الدفع المفضلة للشحن",
+      "mastercard": "ماستر كارد",
+      "vodafoneCash": "فودافون كاش"
+    }
   }
 }

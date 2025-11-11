@@ -207,5 +207,31 @@
       "messageError": "Message must be at least 10 characters",
       "phoneError": "Please enter a valid phone number"
     }
+  },
+  "course": {
+    "title": "Media Buying Course",
+    "coursePrice": "Course Price",
+    "price": "799 EGP",
+    "form": {
+      "title": "Checkout Information",
+      "name": "Full Name",
+      "namePlaceholder": "Enter your name",
+      "email": "Email Address",
+      "emailPlaceholder": "Enter your email",
+      "phone": "Phone Number",
+      "phonePlaceholder": "Enter your phone number",
+      "totalCoursePrice": "Total Course Price",
+      "submit": "Complete purchase",
+      "submitting": "Submitting...",
+      "required": "This field is required",
+      "nameError": "Name must be at least 2 characters",
+      "emailError": "Please enter a valid email",
+      "messageError": "Message must be at least 10 characters",
+      "phoneError": "Please enter a valid phone number",
+      "choosePaymentMethod": "Choose Payment Method",
+      "choosePaymentMethodDescription": "Select your preferred payment option",
+      "mastercard": "Master Card",
+      "vodafoneCash": "Vodafone Cash"
+    }
   }
 }
