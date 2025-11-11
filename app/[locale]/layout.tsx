@@ -5,6 +5,8 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import "../globals.css";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 const alexandria = Alexandria({
   variable: "--font-alexandria",
@@ -35,10 +37,12 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
+    <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"} className="scroll-smooth">
       <body className={`${alexandria.variable} antialiased`}>
         <NextIntlClientProvider messages={messages}>
+          <Header />  
           {children}
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

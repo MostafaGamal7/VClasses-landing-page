@@ -233,5 +233,28 @@
       "mastercard": "ماستر كارد",
       "vodafoneCash": "فودافون كاش"
     }
-  }
+  },
+  "footer": {
+    "description": "نمكن المتعلمين من خلال دورات عالية الجودة عبر الإنترنت لتحقيق أهدافهم وتطوير حياتهم المهنية.",
+    "quickLinksTitle": "روابط سريعة",
+    "contactUs": "اتصل بنا",
+    "allRightsReserved": "جميع الحقوق محفوظة.",
+    "contact": {
+      "email": "vckasess@gmail.com",
+      "phone": "+20 123 456 789",
+      "address": "القاهرة, مصر"
+    },
+    "quickLinks": {
+      "home": "الرئيسية",
+      "about": "من نحن",
+      "plans": "باقات الأسعار",
+      "contact": "اتصل بنا",
+      "reviews": "آراء العملاء",
+      "instructors": "المدربين"
+    },
+    "developed": {
+      "developed": "تم التطوير بواسطة",
+      "rights": " جميع الحقوق محفوظة @"
+    }
+}
 }

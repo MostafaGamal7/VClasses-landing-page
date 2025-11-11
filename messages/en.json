@@ -233,5 +233,28 @@
       "mastercard": "Master Card",
       "vodafoneCash": "Vodafone Cash"
     }
-  }
+  },
+  "footer": {
+    "description": "Empowering learners with high-quality online courses to achieve their goals and advance their careers.",
+    "quickLinksTitle": "Quick Links",
+    "contactUs": "Contact Us",
+    "allRightsReserved": "All rights reserved.",
+    "contact": {
+      "email": "vckasess@gmail.com",
+      "phone": "+20 123 456 789",
+      "address": "Cairo, Arab Republic of Egypt"
+    },
+    "quickLinks": {
+      "home": "Home",
+      "about": "About Us",
+      "plans": "Pricing Plans",
+      "contact": "Contact Us",
+      "reviews": "Reviews",
+      "instructors": "Instructors"
+    },
+    "developed": {
+      "developed": "Developed by",
+      "rights": " All Copy Rights Reserved @"
+    }
+}
 }
