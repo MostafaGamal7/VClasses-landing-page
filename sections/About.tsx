@@ -3,22 +3,39 @@
 import { useTranslations, useLocale } from "next-intl";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useRef } from "react";
 import AboutCard from "@/components/AboutCard";
 import { aboutCards } from "@/lib/constants";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
+import {
+  fadeInAnimation,
+  textRevealAnimation,
+  scaleAnimation,
+  slideInAnimation,
+} from "@/utils/gsap-animations";
 
 export default function About() {
   const t = useTranslations("about");
-  const locale = useLocale();
+
+  // Refs for animation elements
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
+  const learnTitleRef = useRef<HTMLHeadingElement>(null);
+  const learnSubtitleRef = useRef<HTMLParagraphElement>(null);
+  const learnItemsRef = useRef<HTMLDivElement>(null);
+  const learnImageRef = useRef<HTMLDivElement>(null);
+  const ctaButtonRef = useRef<HTMLDivElement>(null);
+  const lineRef = useRef<HTMLDivElement>(null);
+
   // Make the unselected cards have a smaller width
 
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       containScroll: "keepSnaps",
       loop: true,
-      direction: locale === "ar" ? "rtl" : "ltr",
       slidesToScroll: 1,
       breakpoints: {
         // small screens one card
@@ -59,39 +76,147 @@ export default function About() {
     };
   }, [emblaApi, onSelect]);
 
+  // GSAP Animations
+  useEffect(() => {
+    // Animate title with text reveal
+    if (titleRef.current) {
+      textRevealAnimation(titleRef.current, {
+        duration: 1.2,
+        delay: 0.2,
+        splitBy: "words",
+        trigger: "#about",
+      });
+    }
+
+    // Animate subtitle with fade in
+    if (subtitleRef.current) {
+      fadeInAnimation(subtitleRef.current, {
+        duration: 0.8,
+        delay: 0.5,
+        y: 20,
+        trigger: "#about",
+      });
+    }
+
+    // Animate cards container with fade in
+    if (cardsRef.current) {
+      fadeInAnimation(cardsRef.current, {
+        duration: 1,
+        delay: 0.8,
+        y: 30,
+        trigger: "#about",
+      });
+    }
+
+    // Animate learn section title
+    if (learnTitleRef.current) {
+      textRevealAnimation(learnTitleRef.current, {
+        duration: 1.2,
+        delay: 0.2,
+        splitBy: "words",
+        trigger: ".learn-section",
+      });
+    }
+
+    // Animate learn section subtitle
+    if (learnSubtitleRef.current) {
+      fadeInAnimation(learnSubtitleRef.current, {
+        duration: 0.8,
+        delay: 0.4,
+        y: 20,
+        trigger: ".learn-section",
+      });
+    }
+
+    // Animate learn items with slide in from left
+    if (learnItemsRef.current) {
+      const items = Array.from(
+        learnItemsRef.current.querySelectorAll(".learn-item")
+      );
+      slideInAnimation(items as HTMLElement[], {
+        direction: "left",
+        duration: 0.8,
+        delay: 0.6,
+        distance: 50,
+        trigger: ".learn-section",
+      });
+    }
+
+    // Animate learn image with scale
+    if (learnImageRef.current) {
+      scaleAnimation(learnImageRef.current, {
+        duration: 1,
+        delay: 0.8,
+        scale: 0.8,
+        trigger: ".learn-section",
+      });
+    }
+
+    // Animate CTA button
+    if (ctaButtonRef.current) {
+      fadeInAnimation(ctaButtonRef.current, {
+        duration: 0.8,
+        delay: 1.2,
+        y: 20,
+        trigger: ".learn-section",
+      });
+    }
+    if (lineRef.current) {
+      fadeInAnimation(lineRef.current, {
+        duration: 0.8,
+        delay: 0.5,
+        y: 10,
+        trigger: "#about",
+      });
+    }
+  }, []);
+
   return (
     <>
-      <section className="py-16 md:py-24 bg-white" id="about">
+      <section
+        className="py-16 md:py-24 dir:ltr"
+        id="about"
+        ref={sectionRef}
+        dir="ltr"
+      >
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
-              <span>{t("title.prefix")}</span>{" "}
-              <span className="relative inline-block px-1">
-                {t("title.highlight")}
-                <svg
-                  className="absolute -bottom-1 left-0 right-0 w-full h-3 text-primary"
-                  viewBox="0 0 300 15"
-                  preserveAspectRatio="none"
-                  style={{ zIndex: -1 }}
-                >
-                  <path
-                    d="M 0 8 Q 30 3, 60 8 T 120 8 T 180 8 T 240 8 T 300 8"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                    fill="none"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </span>
-              <span>{t("title.suffix")}</span>
-            </h2>
-            <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto mt-4">
+            <div className="relative w-fit mx-auto">
+              <h2
+                className="text-3xl md:text-4xl font-bold text-secondary mb-4 "
+                ref={titleRef}
+              >
+                <span>{t("title.prefix")}</span>{" "}
+                <span className="relative inline-block px-1">
+                  {t("title.highlight")}
+                </span>
+                <span>{t("title.suffix")}</span>
+              </h2>
+              <div
+                ref={lineRef}
+                className="absolute top-5 left-0 z-[-1] w-full h-full"
+              >
+                <Image
+                  src="/assets/icons/line.png"
+                  fill
+                  alt="About Title"
+                  className="object-contain"
+                />
+              </div>
+            </div>
+            <p
+              className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto mt-4"
+              ref={subtitleRef}
+            >
               {t("subtitle")}
             </p>
           </div>
 
           <div className="embla overflow-hidden " ref={emblaRef}>
-            <div className="embla__container flex items-end md:items-center pb-4 min-h-[550px]">
+            <div
+              className="embla__container flex items-end md:items-center pb-4 min-h-[550px]"
+              ref={cardsRef}
+            >
               {aboutCards.map((card, index) => (
                 <div
                   className="embla__slide flex-[0_0_80%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] px-2 flex items-end md:items-center"
@@ -121,7 +246,7 @@ export default function About() {
       </section>
 
       {/* What you'll actually learn section */}
-      <section className="relative pb-16 md:pb-24">
+      <section className="relative pb-16 md:pb-24 learn-section">
         {/* Background Image */}
         <div className="absolute inset-0 -z-10">
           <Image
@@ -135,7 +260,7 @@ export default function About() {
         <div className="container mx-auto px-4 pt-16 md:pt-24">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Illustration side - appears first on mobile, switches based on locale on desktop */}
-            <div className={`order-1 md:order-2 relative`}>
+            <div className={`order-1 md:order-2 relative`} ref={learnImageRef}>
               <div className="relative w-full h-[350px] md:h-[450px] lg:h-[550px]">
                 <Image
                   src="/assets/images/about/about-learn-bg.png"
@@ -150,39 +275,42 @@ export default function About() {
             {/* Content side - appears second on mobile, switches based on locale on desktop */}
             <div className={`order-2 md:order-1`}>
               {/* Title */}
-              <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4 relative">
-                <span>{t("learn.title.prefix")}</span>{" "}
-                <span className="relative inline-block px-1">
-                  {t("learn.title.highlight")}
-                  <svg
-                    className="absolute -bottom-1 left-0 right-0 w-full h-3 text-primary"
-                    viewBox="0 0 300 15"
-                    preserveAspectRatio="none"
-                    style={{ zIndex: -1 }}
-                  >
-                    <path
-                      d="M 0 8 Q 30 3, 60 8 T 120 8 T 180 8 T 240 8 T 300 8"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                      fill="none"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </span>
-                {t("learn.title.suffix") && (
-                  <span> {t("learn.title.suffix")}</span>
-                )}
-              </h2>
-
-              {/* Subtitle */}
-              <p className="text-gray-600 text-lg md:text-xl mb-10 leading-relaxed">
+              <div className="relative w-fit">
+                <h2
+                  className="text-3xl md:text-4xl font-bold text-secondary mb-4 relative w-fit"
+                  ref={learnTitleRef}
+                >
+                  <span>{t("learn.title.prefix")}</span>{" "}
+                  <span className="relative inline-block px-1">
+                    {t("learn.title.highlight")}
+                  </span>
+                  {t("learn.title.suffix") && (
+                    <span> {t("learn.title.suffix")}</span>
+                  )}
+                </h2>
+                <div
+                  ref={lineRef}
+                  className="absolute top-5 left-0 z-[-1] w-full h-full"
+                >
+                  <Image
+                    src="/assets/icons/line.png"
+                    fill
+                    alt="About Title"
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+              <p
+                className="text-gray-600 text-lg md:text-xl mb-10 leading-relaxed"
+                ref={learnSubtitleRef}
+              >
                 {t("learn.subtitle")}
               </p>
 
               {/* Feature Items */}
-              <div className="space-y-6 mb-8">
+              <div className="space-y-6 mb-8" ref={learnItemsRef}>
                 {/* Item 1: Campaign Setup & Strategy */}
-                <div className="flex gap-4">
+                <div className="flex gap-4 learn-item">
                   <div className="shrink-0">
                     <div className="w-12 h-12 rounded-xl flex items-center justify-center shadow-md">
                       <Image
@@ -205,7 +333,7 @@ export default function About() {
                 </div>
 
                 {/* Item 2: Winning Creatives & Ad Copy */}
-                <div className="flex gap-4">
+                <div className="flex gap-4 learn-item">
                   <div className="shrink-0">
                     <div className="w-12 h-12 rounded-xl flex items-center justify-center shadow-md">
                       <Image
@@ -228,7 +356,7 @@ export default function About() {
                 </div>
 
                 {/* Item 3: Optimize & Scale */}
-                <div className="flex gap-4">
+                <div className="flex gap-4 learn-item">
                   <div className="shrink-0">
                     <div className="w-12 h-12 rounded-xl flex items-center justify-center shadow-md">
                       <Image
@@ -252,13 +380,15 @@ export default function About() {
               </div>
 
               {/* CTA Button */}
-              <Button
-                href="#enroll"
-                translationKey="about.learn.cta"
-                variant="primary"
-                size="lg"
-                className="w-64 m-auto md:m-0 min-h-12"
-              />
+              <div ref={ctaButtonRef}>
+                <Button
+                  href="#enroll"
+                  translationKey="about.learn.cta"
+                  variant="primary"
+                  size="lg"
+                  className="w-64 m-auto md:m-0 min-h-12"
+                />
+              </div>
             </div>
           </div>
         </div>

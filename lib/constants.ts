@@ -1,3 +1,22 @@
+export const navLinks = [
+  {
+    href: '#home',
+    text: 'home',
+  },
+  {
+    href: '#about',
+    text: 'about',
+  },
+  {
+    href: '#reviews',
+    text: 'reviews',
+  },
+  {
+    href: '#plans',
+    text: 'plans',
+  }
+];
+
 export const aboutCards = [
   {
     title: "card1.title",
@@ -143,9 +162,9 @@ export const plans: PlanData[] = [
       { id: 'f4', textKey: 'plans.features.support', available: false },
     ],
     pricing: {
-      monthly: 9.99,
-      yearly: 99.99,
-      currency: 'EGP ',
+      monthly: 499,
+      yearly: 4999,
+      currency: 'plans.period.currency',
       periodKey: 'plans.period.monthly',
       saveKey: 'plans.save.percent',
     },
@@ -163,9 +182,9 @@ export const plans: PlanData[] = [
       { id: 'f4', textKey: 'plans.features.support', available: false },
     ],
     pricing: {
-      monthly: 19.99,
-      yearly: 199.99,
-      currency: '$',
+      monthly: 899,
+      yearly: 8999,
+      currency: 'plans.period.currency',
       periodKey: 'plans.period.monthly',
       saveKey: 'plans.save.percent',
     },
@@ -183,14 +202,14 @@ export const plans: PlanData[] = [
       { id: 'f4', textKey: 'plans.features.support', available: true },
     ],
     pricing: {
-      monthly: 29.99,
-      yearly: 299.99,
-      currency: '$',
+      monthly: 1499,
+      yearly: 14999,
+      currency: 'plans.period.currency',
       periodKey: 'plans.period.monthly',
       saveKey: 'plans.save.percent',
     },
     buttonTextKey: 'plans.button.contactUs',
-    buttonVariant: 'secondary',
+    buttonVariant: 'outline',
   },
 ];
 
@@ -231,6 +250,7 @@ export const footerLinks = [
       { text: 'quickLinks.plans', href: '#plans' },
       { text: 'quickLinks.contact', href: '#contact' },
       { text: 'quickLinks.reviews', href: '#reviews' },
+      { text: 'quickLinks.enroll', href: '#meet' },
       { text: 'quickLinks.instructors', href: '#meet' },
     ]
   }

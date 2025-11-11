@@ -1,9 +1,52 @@
 @import "tailwindcss";
 
+/* Gradient border card utilities (inspired by your example) */
+@layer utilities {
+  /* Wrapper acts as the border container */
+  .plan-card-wrapper {
+    @apply relative overflow-hidden rounded-[32px];
+    background: transparent;
+  }
+
+  /* Spinning conic gradient creates the neon border */
+  .plan-card-wrapper::before {
+    background: conic-gradient(
+      rgba(182, 126, 253, 0.45) 0deg,
+      rgba(240, 136, 210, 0.45) 40deg,
+      rgba(254, 91, 62, 0.45) 80deg,
+      transparent 300deg
+    );
+    content: "";
+    @apply absolute left-[-25%] top-[-25%] h-[150%] w-[150%] animate-border-spin;
+  }
+
+  /* Inner card body (dark glass, subtle ring) */
+  .plan-card-content {
+    @apply absolute left-[1px] top-[1px] h-[calc(100%-2px)] w-[calc(100%-2px)] rounded-[32px] backdrop-blur-xl ring-1 ring-white/20;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(13, 18, 38, 0.7),
+      rgba(7, 10, 22, 0.8)
+    );
+    box-shadow: 0 10px 40px rgba(240, 136, 210, 0.18);
+  }
+
+  /* Animation utility */
+  .animate-border-spin {
+    animation: border-spin 6s linear infinite;
+  }
+}
+
+@keyframes border-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 :root {
   --background: #ffffff;
   --primary: #fe5b3e;
-  --primary-hover: #FE7B49;
+  --primary-hover: #fe7b49;
   --secondary: #221314;
 }
 
@@ -18,6 +61,7 @@
 body {
   background: var(--background);
   font-family: var(--font-alexandria, var(--font-cairo, system-ui, sans-serif));
+  overflow-x: hidden;
 }
 
 a,
@@ -35,6 +79,39 @@ button {
 
 @utility container {
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.plan-card-wrapper {
+  @apply relative overflow-hidden rounded-2xl;
+}
+
+.plan-card-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -25%;
+  width: 150%;
+  height: 150%;
+  background: conic-gradient(
+    rgba(182, 126, 253, 0.45) 0deg,
+    rgba(240, 136, 210, 0.45) 40deg,
+    rgba(254, 91, 62, 0.45) 80deg,
+    transparent 300deg
+  );
+  animation: border-spin 6s linear infinite;
+}
+
+.plan-card-content {
+  @apply absolute left-px top-px h-[calc(100%-2px)] w-[calc(100%-2px)] rounded-2xl ;
+}
+
+@utility animate-border-spin {
+  animation: border-spin 6s linear infinite;
+}
+
+@keyframes border-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .embla__slide {
