@@ -6,7 +6,7 @@ import useEmblaCarousel from 'embla-carousel-react';
 import { plans } from '@/lib/constants';
 import Image from 'next/image';
 import PlanCard from '@/components/PlanCard';
-
+import { useLocale } from 'next-intl';
 const TWEEN_FACTOR_BASE = 0.03;
 
 const numberWithinRange = (number: number, min: number, max: number) =>
@@ -14,6 +14,7 @@ const numberWithinRange = (number: number, min: number, max: number) =>
 
 export default function Plans() {
   const t = useTranslations();
+  const locale = useLocale();
   const [isYearly, setIsYearly] = useState(false);
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: false,
@@ -112,6 +113,7 @@ export default function Plans() {
                 src="/assets/images/plans/plans-bg.png"
                 alt="Plans Background"
                 fill
+                className={`${locale === 'ar' ? 'scale-x-[-1]' : ''}`}
                 priority
               />
         </div>

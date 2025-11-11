@@ -6,6 +6,7 @@ import Plans from "@/sections/Plans";
 import Meeting from "@/sections/Meeting";
 import FAQs from "@/sections/FAQs";
 import Contact from "@/sections/Contact";
+import Course from "@/sections/Course";
 
 function Home() {
   return (
@@ -18,6 +19,7 @@ function Home() {
       <Meeting />
       <FAQs />
       <Contact />
+      <Course />
     </>
   );
 }
