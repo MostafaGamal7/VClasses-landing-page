@@ -1,7 +1,12 @@
-import { useEffect, useRef } from 'react';
-import { fadeInAnimation, textRevealAnimation, scaleAnimation, slideInAnimation } from './gsap-animations';
+import { useEffect, useRef } from "react";
+import {
+  fadeInAnimation,
+  textRevealAnimation,
+  scaleAnimation,
+  slideInAnimation,
+} from "./gsap-animations";
 
-type AnimationType = 'fadeIn' | 'textReveal' | 'scale' | 'slideIn';
+type AnimationType = "fadeIn" | "textReveal" | "scale" | "slideIn";
 
 interface UseGsapAnimationOptions {
   type: AnimationType;
@@ -11,8 +16,8 @@ interface UseGsapAnimationOptions {
   x?: number;
   scale?: number;
   distance?: number;
-  direction?: 'left' | 'right' | 'top' | 'bottom';
-  splitBy?: 'chars' | 'words' | 'lines';
+  direction?: "left" | "right" | "top" | "bottom";
+  splitBy?: "chars" | "words" | "lines";
   trigger?: string;
   start?: string;
   end?: string;
@@ -29,7 +34,7 @@ export const useGsapAnimation = (options: UseGsapAnimationOptions) => {
     const element = elementRef.current;
 
     switch (options.type) {
-      case 'fadeIn':
+      case "fadeIn":
         fadeInAnimation(element, {
           duration: options.duration,
           delay: options.delay,
@@ -39,39 +44,39 @@ export const useGsapAnimation = (options: UseGsapAnimationOptions) => {
           start: options.start,
           end: options.end,
           scrub: options.scrub,
-          markers: options.markers
+          markers: options.markers,
         });
         break;
 
-      case 'textReveal':
+      case "textReveal":
         textRevealAnimation(element, {
           duration: options.duration,
           delay: options.delay,
-          splitBy: options.splitBy
+          splitBy: options.splitBy,
         });
         break;
 
-      case 'scale':
+      case "scale":
         scaleAnimation(element, {
           duration: options.duration,
           delay: options.delay,
           scale: options.scale,
-          trigger: options.trigger
+          trigger: options.trigger,
         });
         break;
 
-      case 'slideIn':
+      case "slideIn":
         slideInAnimation(element, {
           direction: options.direction,
           duration: options.duration,
           delay: options.delay,
           distance: options.distance,
-          trigger: options.trigger
+          trigger: options.trigger,
         });
         break;
 
       default:
-        console.warn('Unknown animation type:', options.type);
+        console.warn("Unknown animation type:", options.type);
     }
   }, [options]);
 
@@ -79,14 +84,16 @@ export const useGsapAnimation = (options: UseGsapAnimationOptions) => {
 };
 
 // Hook for animating multiple elements
-export const useGsapAnimationGroup = (options: UseGsapAnimationOptions & { elements: HTMLElement[] }) => {
+export const useGsapAnimationGroup = (
+  options: UseGsapAnimationOptions & { elements: HTMLElement[] }
+) => {
   const { elements, ...animationOptions } = options;
 
   useEffect(() => {
     if (!elements || elements.length === 0) return;
 
     switch (animationOptions.type) {
-      case 'fadeIn':
+      case "fadeIn":
         fadeInAnimation(elements, {
           duration: animationOptions.duration,
           delay: animationOptions.delay,
@@ -96,31 +103,34 @@ export const useGsapAnimationGroup = (options: UseGsapAnimationOptions & { eleme
           start: animationOptions.start,
           end: animationOptions.end,
           scrub: animationOptions.scrub,
-          markers: animationOptions.markers
+          markers: animationOptions.markers,
         });
         break;
 
-      case 'scale':
+      case "scale":
         scaleAnimation(elements, {
           duration: animationOptions.duration,
           delay: animationOptions.delay,
           scale: animationOptions.scale,
-          trigger: animationOptions.trigger
+          trigger: animationOptions.trigger,
         });
         break;
 
-      case 'slideIn':
+      case "slideIn":
         slideInAnimation(elements, {
           direction: animationOptions.direction,
           duration: animationOptions.duration,
           delay: animationOptions.delay,
           distance: animationOptions.distance,
-          trigger: animationOptions.trigger
+          trigger: animationOptions.trigger,
         });
         break;
 
       default:
-        console.warn('Animation type not supported for groups:', animationOptions.type);
+        console.warn(
+          "Animation type not supported for groups:",
+          animationOptions.type
+        );
     }
   }, [elements, animationOptions]);
 };
