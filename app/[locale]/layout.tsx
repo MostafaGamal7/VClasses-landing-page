@@ -40,7 +40,7 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={locale === "ar" ? "rtl" : "ltr"}
-      className="scroll-smooth"
+      className="scroll-smooth over-flow-x-hidden"
     >
       <body className={`${alexandria.variable} antialiased`}>
         <NextIntlClientProvider messages={messages}>
