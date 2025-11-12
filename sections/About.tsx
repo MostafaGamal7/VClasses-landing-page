@@ -83,7 +83,7 @@ export default function About() {
       textRevealAnimation(titleRef.current, {
         duration: 1.2,
         delay: 0.2,
-        splitBy: "words",
+        splitBy: "lines",
         trigger: "#about",
       });
     }

@@ -205,6 +205,7 @@ export default function Plans() {
       className="relative pb-24 md:pb-48 pt-24 md:pt-48"
       id="plans"
       ref={sectionRef}
+      dir="ltr"
     >
       {/* Background pattern */}
       <div className="absolute inset-0 -z-10">
